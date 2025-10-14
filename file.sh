@@ -7,6 +7,9 @@ IFS=$'\n'
 for LINE in $(cat "$INFILE")
 do
     IFS=', ' read -r -a array <<< $LINE
-    echo "${array[1]}"
+    if [ -z "${array[3]}" ]; then
+        echo emailEmpty!
+    fi
+
 done
 
